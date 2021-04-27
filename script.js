@@ -12,9 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch (`https://www.dnd5eapi.co/api/spells/?name=${input.value}`)
             .then(response => response.json())
             .then(data => {
-                for (const key in data.results) {
+                for (const obj of data.results) {
                     const li = document.createElement('li');
-                    li.innerText = `${data.results[key].name}`;
+                    li.innerText = `${obj.name}`;
+                    attachClickListener (li, obj.url);
                     spellList.append(li);
                 }
             })
@@ -23,19 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
             });
       });
 
-    spellList.li.addEventListener('click', (e) => {
-        fetch (`https://www.dnd5eapi.co/api/spells/${li.value.split(" ").join("-").toLowerCase()}`)
-            .then(response => response.json())
-            .then(data => {
-                const ul = document.createElement('ul');
-                const desc = document.createElement('li');
-                desc.innerText = `${data.desc}`;
-                ull.append(desc);
-                li.append(ul);
-            })
-            .catch(error => {
-                document.body.append(error.message);
-            });
-      });
+    function attachClickListener(li, url){
+        li.addEventListener('click', (e) => {
+            fetch (`https://www.dnd5eapi.co${url}`)
+                .then(response => response.json())
+                .then(data => {
+                    const ul = document.createElement('ul');
+                    const desc = document.createElement('li');
+                    desc.innerText = `${data.desc}`;
+                    ul.append(desc);
+                    li.append(ul);
+                })
+                .catch(error => {
+                    document.body.append(error.message);
+                });
+        });
+    }
 
 });
