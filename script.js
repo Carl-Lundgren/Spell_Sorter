@@ -25,15 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     function attachClickListener(li, url){
+        let i = 1;
         li.addEventListener('click', (e) => {
             fetch (`https://www.dnd5eapi.co${url}`)
                 .then(response => response.json())
                 .then(data => {
-                    const ul = document.createElement('ul');
-                    const desc = document.createElement('li');
-                    desc.innerText = `${data.desc}`;
-                    ul.append(desc);
-                    li.append(ul);
+                    if (i === 0){
+                        li.removeChild(li.lastChild);
+                        i = 1;
+                        
+                    } else {
+                        const ul = document.createElement('ul');
+                        const desc = document.createElement('li');
+                        desc.innerText = `${data.desc}`;
+                        i = 0;
+                        ul.append(desc);
+                        li.append(ul);
+                    }
                 })
                 .catch(error => {
                     document.body.append(error.message);
