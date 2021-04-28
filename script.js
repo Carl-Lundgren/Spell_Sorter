@@ -37,7 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {
                         const ul = document.createElement('ul');
                         const desc = document.createElement('li');
-                        desc.innerText = `${data.desc}`;
+                        if (data.higher_level){
+                            desc.innerHTML = 
+                            `level: ${data.level} <br> range: ${data.range} <br> casting time: ${data.casting_time} <br>
+                            duration: ${data.duration} <br> concentration: ${data.concentration} <br> components: ${data.components} <br> <br>
+                            ${data.desc} <br> <br> ${data.higher_level} <br>`;
+                        } else {
+                            desc.innerHTML = 
+                            `level: ${data.level} <br> range: ${data.range} <br> casting time: ${data.casting_time} <br>
+                            duration: ${data.duration} <br> concentration: ${data.concentration} <br> components: ${data.components} <br> <br>
+                            ${data.desc} <br>`;
+                        }
                         i = 0;
                         ul.append(desc);
                         li.append(ul);
