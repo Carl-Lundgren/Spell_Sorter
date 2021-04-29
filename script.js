@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                     } else {
                         const ul = document.createElement('ul');
+                        ul.classList.add("inner");
                         const desc = document.createElement('li');
                         if (data.higher_level){
                             desc.innerHTML = 

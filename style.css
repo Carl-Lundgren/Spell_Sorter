@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    font-family: monospace;
+  }
+  
+  #header {
+    display: flex;
+    justify-content: center;
+    background: #253d5b;
+    color: #fff;
+    
+    height: 7rem;
+    padding: 1rem;
+  }
+
+  #spell-search-form {
+    background: #5b3000;
+    color: #fff;
+    margin: 1rem;
+    padding: 10px;
+  }
+  .container {
+    margin: 1rem;
+    padding: 10px;
+  }
+
+  #descriptor {
+    color: #253d5b;
+  }
+
+  .inner {
+    background: #62929e;
+    color: #fff;
+    margin: 3px;
+    padding: 5px;
+  }
