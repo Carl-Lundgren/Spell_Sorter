@@ -1,12 +1,13 @@
 body {
     margin: 0;
     font-family: monospace;
+    font-size: larger;
   }
   
   #header {
     display: flex;
     justify-content: center;
-    background: #253d5b;
+    background: #253D5B;
     color: #fff;
     font-size: xx-large;
     
@@ -15,7 +16,7 @@ body {
   }
 
   #spell-search-form {
-    background: #5b3000;
+    background: #5B3000;
     color: #fff;
     margin: 1rem;
     padding: 10px;
@@ -27,11 +28,22 @@ body {
   }
 
   #descriptor {
-    color: #253d5b;
+    color: #253D5B;
+  }
+  
+  #favorites {
+    color: #253D5B;
   }
 
   .inner {
-    background: #62929e;
+    background: #62929E;
+    color: #fff;
+    margin: 3px;
+    padding: 5px;
+  }
+
+  .favorite {
+    background: #F9A03F;
     color: #fff;
     margin: 3px;
     padding: 5px;
